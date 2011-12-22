@@ -1,0 +1,4 @@
+check process searchd
+  with pidfile /var/apps/myapp/shared/pids/searchd.pid
+  start program = "/usr/local/bin/searchd --pidfile --config path_to.conf" as uid cca and gid cca
+  stop program = "/usr/local/bin/searchd --stop --pidfile --config path_to.conf" as uid cca and gid cca
