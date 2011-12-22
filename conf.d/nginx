@@ -1,0 +1,10 @@
+check process nginx 
+  with pidfile /opt/nginx/logs/nginx.pid #Pid file for nginx in my case it located in /opt/nginx/logs/
+  start program = "/etc/init.d/nginx start"
+  stop program = "/etc/init.d/nginx stop"
+  if failed host 127.0.0.1 port 80 protocol HTTP then restart 
+  if 5 restarts with 5 cycles then timeout
+  if cpu is greater than 30% for 2 cycles then alert
+  if cpu is greater than 50% for 5 cycles then restart
+  if totalmem is greater than 50.0 MB for 5 cycles then restart
+  if children is greater than 10 then restart

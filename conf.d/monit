@@ -1,0 +1,4 @@
+check process monit
+   with pidfile /var/run/monit.pid
+   start program  "/etc/init.d/monit start"
+   stop program  "/etc/init.d/monit stop"
